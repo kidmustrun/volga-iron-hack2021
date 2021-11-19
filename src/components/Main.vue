@@ -1,5 +1,5 @@
 <template>
-  <div class="position-relative">
+  <div class="position-relative mb-5">
     <img src="@/assets/line_1.svg" class="position-absolute svg-back" />
     <h1 class="text-center pt-5">Что мы предлагаем?</h1>
 
@@ -9,7 +9,7 @@
           <h3 class="text-center">ЛОВИСЬ РЫБКА БОЛЬШАЯ</h3>
           <p class="text-center">
             Нет ничего лучше, чем сидеть и наблюдать за красотами природы и
-            звуками плещущихся рыб:сом, сазан, жерех, судак, щука, окунь, лещ,
+            звуками плещущихся рыб: сом, сазан, жерех, судак, щука, окунь, лещ,
             линь, карась, вобла, подводная охота.
           </p>
         </div>
