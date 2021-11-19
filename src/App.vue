@@ -2,6 +2,7 @@
   <div id="app">
     <Header/>
     <Hero/>
+    <Main/>
   </div>
 </template>
 
@@ -10,11 +11,14 @@ import "../node_modules/bootstrap/dist/css/bootstrap.css"
 import "../node_modules/bootstrap/dist/js/bootstrap.js"
 import Header from './components/Header.vue'
 import Hero from './components/Hero.vue'
+import Main from './components/Main.vue'
+
 export default {
   name: 'App',
   components: {
     Header,
-    Hero
+    Hero,
+    Main
   }
 }
 </script>
