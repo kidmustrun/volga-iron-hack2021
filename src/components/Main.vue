@@ -58,6 +58,9 @@
           </p>
         </div>
       </div>
+      <div class="d-flex justify-content-end">
+        <button class="btn_border align-right">Забронировать сейчас</button>
+      </div>
     </div>
   </div>
 </template>
@@ -96,5 +99,19 @@ img {
 .svg-back {
   z-index: -100;
   width: 100vw;
+}
+.btn_border {
+  padding: 12px 24px;
+  border: solid 2px #7e7d8c;
+  color: #322d3a;
+  background: transparent;
+  font-size: 20px;
+  transition: ease 0.5s;
+}
+.btn_border:hover {
+  border: solid 2px #322d3a;
+  color: #fff;
+  background: #322d3a;
+  transition: ease 0.5s;
 }
 </style>
