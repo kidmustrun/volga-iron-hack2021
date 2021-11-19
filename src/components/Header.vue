@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <a class="navbar-brand d-flex flex-column align-items-center" href="#">
           <img src="@/assets/logo.png" alt="logo" height="60" />
-          <span class="logo-text">Каспийский лотос</span>
+          <span class="logo-text">Каспийский Лотос</span>
         </a>
          
               <button
@@ -18,12 +18,12 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse mt-2" id="navbarSupportedContent">
           <div class="nav-item">
-            <a class="nav-link pt-0 pb-0" aria-current="page" href="#"
-                >8-927-284-41-93</a
+            <span class="nav-link pt-0 pb-0 ps-0"
+                >8-927-284-41-93</span
               >
-              <a class="nav-link pt-0 pb-0" href="#">soc_zinovevana@pvrr.ru</a>
+              <span class="nav-link pt-0 pb-0 ps-0">soc_zinovevana@pvrr.ru</span>
               </div>
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
@@ -49,20 +49,17 @@
 <script>
 export default {
   name: "Header",
-  props: {
-    msg: String,
-  },
 };
 </script>
 <style scoped>
 .navbar_set {
   height: 100px;
-  background-color: #322d3a;
 }
-nav a {
+nav a, span {
   color: white !important;
   font-size: 20px;
 }
+
 .logo-text {
   color: #fdd704;
 }
