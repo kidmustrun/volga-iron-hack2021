@@ -59,7 +59,7 @@
         </div>
       </div>
       <div class="d-flex justify-content-end">
-        <button class="btn_border align-right">Забронировать сейчас</button>
+        <button class="btn_border align-right mt-3">Забронировать сейчас</button>
       </div>
     </div>
   </div>

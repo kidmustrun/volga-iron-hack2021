@@ -1,5 +1,5 @@
 <template>
-  <div class="hero d-flex">
+  <div class="hero d-flex" :class="{ 'hero-long': this.width <= 768 }">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md equipment p-3 me-5">
@@ -51,9 +51,22 @@
 <script>
 export default {
   name: "Cards",
+  data() {
+    return { width: null };
+  },
+  methods: {
+    updateWidth() {
+      this.width = window.innerWidth;
+    },
+  },
+  created() {
+    window.addEventListener("resize", this.updateWidth);
+    this.updateWidth();
+  },
 };
 </script>
 <style scoped>
+
 .row-flex {
   display: flex;
   flex-flow: row wrap;
@@ -63,12 +76,16 @@ export default {
   height: 100vh;
   color: white;
 }
+.hero-long{
+      height: 200vh;
+}
 .equipment {
   background: url("~@/assets/equipment.png") no-repeat center;
   height: 40vh;
   margin: 5vh 0;
   cursor: pointer;
   position: relative;
+  background-size: cover;
 }
 
 .about {
@@ -80,6 +97,7 @@ export default {
   background: rgba(255, 255, 255, 0.5);
   color: #000;
   transition: 0.5s ease;
+  background-size: cover;
 }
 .about:hover {
   opacity: 1;
@@ -94,6 +112,7 @@ export default {
   margin: 5vh 0;
   cursor: pointer;
   position: relative;
+  background-size: cover;
 }
 .hunting {
   background: url("~@/assets/hunting.png") no-repeat center 20%;
@@ -102,6 +121,7 @@ export default {
   margin: 5vh 0;
   cursor: pointer;
   position: relative;
+  background-size: cover;
 }
 .bathhouse {
   background: url("~@/assets/bathhouse.png") no-repeat center;
@@ -109,5 +129,14 @@ export default {
   margin: 5vh 0;
   cursor: pointer;
   position: relative;
+  background-size: cover;
+}
+@media screen and (max-width:768px) {
+    .about{
+        opacity: 1;
+    }
+    .about + h1 {
+  opacity: 0;
+}
 }
 </style>
