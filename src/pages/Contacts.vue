@@ -11,7 +11,7 @@
 import Title from "../components/Title.vue"
 import ContactsInfo from "../components/ContactsInfo.vue"
 export default {
-  name: "Home",
+  name: "Contacts",
   components: {
     Title,
     ContactsInfo

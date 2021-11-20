@@ -30,7 +30,7 @@
               <a class="nav-link" href="#">Домики</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Мероприятия</a>
+              <router-link class="nav-link" to="/events">Мероприятия</router-link>
             </li>
             <li class="nav-item">
               <router-link class="nav-link" to="/contacts">Контакты</router-link>
@@ -61,7 +61,7 @@ nav a, span {
 }
 
 .logo-text {
-  color: #fdd704;
+  color: #fdd704 !important;
 }
 .btn_border {
   border: solid 3px #fdd704;
