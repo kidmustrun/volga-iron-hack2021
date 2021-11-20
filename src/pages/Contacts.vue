@@ -2,17 +2,19 @@
   <div>
     
     <Title title="Контакты" image="contacts_hero.png"/>
-    
+    <ContactsInfo/>
   </div>
 </template>
 
 <script>
 
 import Title from "../components/Title.vue"
+import ContactsInfo from "../components/ContactsInfo.vue"
 export default {
   name: "Home",
   components: {
-    Title
+    Title,
+    ContactsInfo
   },
   props: ["title", "image"],
 };
