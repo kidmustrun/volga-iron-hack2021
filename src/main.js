@@ -9,7 +9,8 @@ import Houses from "./pages/Houses.vue";
 import Account from "./pages/Account.vue";
 import SignIn from "./pages/SignIn.vue";
 import SignUp from "./pages/SignUp.vue";
-import ViewHouse from './pages/ViewHouse.vue';
+import ViewHouse from "./pages/ViewHouse.vue";
+import PayHouse from "./pages/PayHouse.vue";
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -21,8 +22,19 @@ const isAuthenticated = () => {
 const routes = [
   { path: "/", component: Home },
   { path: "/events", component: Events },
-  { path: '/view_house', component: ViewHouse },
+  { path: "/view_house", component: ViewHouse },
   { path: "/contacts", component: Contacts },
+  {
+    path: "/pay_house/:id/:start/:end",
+    component: PayHouse,
+    beforeEnter(to, from, next) {
+      if (isAuthenticated()) {
+        next();
+      } else {
+        next("/signin");
+      }
+    },
+  },
   {
     path: "/booking",
     component: Booking,
@@ -35,7 +47,7 @@ const routes = [
     },
   },
   {
-    path: "/booking/:id",
+    path: "/booking/:id/:start/:end",
     component: ViewHouse,
     beforeEnter(to, from, next) {
       if (isAuthenticated()) {

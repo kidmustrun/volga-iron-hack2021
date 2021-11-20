@@ -1,5 +1,5 @@
 const token = localStorage.getItem("token");
-const URL_BASE = "http://3aca-95-165-9-250.ngrok.io/api/v1/";
+const URL_BASE = "http://3aca-95-165-9-250.ngrok.io/";
 export const getSomething = (dataName) =>
   new Promise((resolve, reject) => {
     var axios = require("axios");
@@ -17,6 +17,7 @@ export const getSomething = (dataName) =>
 
     axios(config)
       .then(function (response) {
+        console.log(response)
         resolve(response);
       })
       .catch(function (error) {

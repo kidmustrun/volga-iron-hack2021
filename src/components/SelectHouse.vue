@@ -7,17 +7,14 @@
       >
     </div>
     <div class="view">
-      <img src="@/assets/room1.jpeg" alt="" />
+      <img :src="`http://domenblin.std-941.ist.mospolytech.ru/lotos/${room.photo}`"  alt="" />
       <div class="desc">
-        <h5 class="title_house">Двухместный домик:</h5>
-        <div class="services">
-          <p>• санузел</p>
-          <p>• сплит-система</p>
-          <p>• кухня с холодильником</p>
-          <p>• электроплита и набор посуды</p>
-        </div>
+        <h5 class="title_house">Домик {{room.room_name}}</h5>
+        <p>
+          {{room.about_room}}
+        </p>
         <div class="desc_price">
-          <p class="price">2000 руб</p>
+          <p class="price">{{room.price_per_night}} руб. за ночь</p>
         </div>
         <h5 class="title_house">Дополнительные услуги:</h5>
         <div class="dop_services">
@@ -25,7 +22,7 @@
             <div class="form-check">
               <input
                 class="form-check-input"
-                type="radio"
+                type="checkbox"
                 name="flexRadioDefault"
                 id="flexRadioDefault1"
               />
@@ -36,7 +33,7 @@
             <div class="form-check">
               <input
                 class="form-check-input"
-                type="radio"
+                type="checkbox"
                 name="flexRadioDefault"
                 id="flexRadioDefault2"
               />
@@ -47,7 +44,7 @@
             <div class="form-check">
               <input
                 class="form-check-input"
-                type="radio"
+                type="checkbox"
                 name="flexRadioDefault"
                 id="flexRadioDefault2"
               />
@@ -62,24 +59,34 @@
             <p class="price">2000 руб</p>
           </div>
         </div>
+        <p class="type">Двухместный домик + трёхразовое питание + аренда катера</p>
+        <h3 class="itog"><b>Итог: 5 000 руб.</b></h3>
+         <div class="d-flex justify-content-center">
+             <router-link class="btn_border align-right mt-3" :to="roomPay(room.id)">
+               Забронировать
+           </router-link>
       </div>
     </div>
-    <p class="type">Двухместный домик + трёхразовое питание + аренда катера</p>
-    <h3 class="itog"><b>Итог: 5 000 руб.</b></h3>
-    <div class="d-flex justify-content-center">
-      <router-link class="btn_border align-right mt-3" to="/booking">
-        Забронировать
-      </router-link>
-    </div>
+  </div>
   </div>
 </template>
 <script>
 import { getSomething } from '../api/get';
 export default {
   name: "SelectHouse",
+  data(){
+    return{
+      room: {}
+    }
+  },
   created(){
-      getSomething(`rooms/${this.$route.params.id}`).then((resp)=> this.room = resp.data
+      getSomething(`rooms/${this.$route.params.id}`).then((resp)=> this.room = resp.data.data
       )
+  },
+  methods:{
+    roomPay: function (id) {
+      return `/pay_house/${id}/${this.$route.params.start}/${this.$route.params.end}`;
+    },
   }
 };
 </script>
@@ -114,10 +121,6 @@ img {
 .view img {
   width: 42%;
   height: auto;
-}
-.services {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
 }
 .title_house {
   font-size: 1.7rem;

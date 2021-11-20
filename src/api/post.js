@@ -18,6 +18,8 @@ export const postSomething = (dataName, data) =>
 
     axios(config)
       .then(function (response) {
+        console.log(data)
+        console.log(response)
         resolve(response);
       })
       .catch(function (error) {

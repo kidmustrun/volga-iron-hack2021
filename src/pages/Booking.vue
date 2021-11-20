@@ -16,11 +16,11 @@
       <button class="btn_border mt-5" @click="sendDates()">Найти</button>
     </div>
     <h4 class="date">{{start}} - {{end}}</h4>
-    <div class="select_houses">
+    <div v-if="rooms.length" class="select_houses">
       <h5 class="text-center">Выберите домик</h5>
       <div class="row" v-for="room in rooms" :key="room.id">
         <div class="col-sm">
-          <img :src="room.photo" />
+          <img :src="`http://domenblin.std-941.ist.mospolytech.ru/lotos/${room.photo}`" />
           <div class="info">
             <p class="title">{{room.room_name}}</p>
             <div class="price">
@@ -29,10 +29,10 @@
                 Выбрать
               </router-link>
             </div>
-          </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -51,14 +51,14 @@ export default {
     sendDates() {
       postSomething("rooms/booking", { start: this.start, end: this.end })
         .then((response) => {
-          this.rooms = response;
+          this.rooms = response.data;
         })
         .catch((error) => {
           console.log(error);
         });
     },
      roomOpen: function (id) {
-      return `/booking/${id}`;
+      return `/booking/${id}/${this.start}/${this.end}`;
     },
   },
 };
