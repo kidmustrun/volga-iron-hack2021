@@ -2,7 +2,7 @@
   <div>
     <Title title="Личный кабинет" image="contacts_hero.jpg" />
     <div class="container">
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <ul class="nav nav-tabs mt-3" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
           <button
             class="nav-link active"
