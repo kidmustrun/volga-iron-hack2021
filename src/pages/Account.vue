@@ -95,8 +95,8 @@ export default {
     }
   },
   created() {
-    getSomething('user').then((response) => this.user = response.data.data);
-    getSomething('user/myroom').then((response) => this.bookings = response.data.data);
+    getSomething('api/v1/user').then((response) => this.user = response.data.data);
+    getSomething('api/v1/user/myroom').then((response) => this.bookings = response.data.data);
   }
 };
 </script>

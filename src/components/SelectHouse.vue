@@ -6,7 +6,7 @@
         >НАЗАД</router-link
       >
     </div>
-    <div class="view">
+    <div v-if="room.room_name" class="view">
       <img :src="`http://domenblin.std-941.ist.mospolytech.ru/lotos/${room.photo}`"  alt="" />
       <div class="desc">
         <h5 class="title_house">Домик {{room.room_name}}</h5>
@@ -59,8 +59,6 @@
             <p class="price">2000 руб</p>
           </div>
         </div>
-        <p class="type">Двухместный домик + трёхразовое питание + аренда катера</p>
-        <h3 class="itog"><b>Итог: 5 000 руб.</b></h3>
          <div class="d-flex justify-content-center">
              <router-link class="btn_border align-right mt-3" :to="roomPay(room.id)">
                Забронировать
@@ -68,10 +66,14 @@
       </div>
     </div>
   </div>
+   <div v-else class="text-center">
+    <Loader/>
+    </div>
   </div>
 </template>
 <script>
 import { getSomething } from '../api/get';
+import Loader from "./Loader.vue"
 export default {
   name: "SelectHouse",
   data(){
@@ -79,9 +81,12 @@ export default {
       room: {}
     }
   },
+  components:{
+    Loader
+  },
   created(){
-      getSomething(`rooms/${this.$route.params.id}`).then((resp)=> this.room = resp.data.data
-      )
+      getSomething(`rooms/${this.$route.params.id}`).then((resp)=> this.room = resp.data
+      );
   },
   methods:{
     roomPay: function (id) {

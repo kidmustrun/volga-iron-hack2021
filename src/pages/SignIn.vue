@@ -25,62 +25,59 @@
       </div>
 
       <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="remember" v-model="remember">
-    <label class="form-check-label" for="remember">Запомнить меня</label>
-  </div>
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="remember"
+          v-model="remember"
+        />
+        <label class="form-check-label" for="remember">Запомнить меня</label>
+      </div>
     </form>
-    <button class="btn_border w-100 mt-3" @click="sendUser()">
-      Войти
-    </button>
-    <div v-if="loading" class="cssload-spinner">
-      <div class="cssload-ball cssload-ball-1"></div>
-      <div class="cssload-ball cssload-ball-2"></div>
-      <div class="cssload-ball cssload-ball-3"></div>
-      <div class="cssload-ball cssload-ball-4"></div>
-    </div>
-    <div v-show="show400" class="mt-2 alert alert-danger">
-      Неправильный пароль или email.
-    </div>
-    <div v-show="show503" class="mt-2 alert alert-danger">
-      Что-то пошло не так
-    </div>
+    
+    <button class="btn_border w-100 mt-3" @click="sendUser()">Войти</button>
+    
     <router-link to="/signup">Зарегистрироваться</router-link>
+    <div class="text-center">
+    <Loader v-if="loading"/>
+    </div>
+    
   </div>
 </template>
 
 <script>
 import { loginUser } from "../api/auth.js";
-
+import Loader from "../components/Loader.vue";
 export default {
   name: "SignIn",
+  components:{
+    Loader
+  },
   data() {
     return {
       email: "",
       password: "",
       remember: false,
-      show400: false,
-      show503: false,
       loading: false,
     };
   },
   methods: {
     sendUser() {
       this.loading = true;
-      this.show400 = false;
-      this.show503 = false;
-      console.log(this.loading);
-      loginUser({ email: this.email, password: this.password, remember: this.remember })
+      loginUser({
+        email: this.email,
+        password: this.password,
+        remember: this.remember,
+      })
         .then(() => {
           this.$router.push("/");
-          // location.reload()
-          this.show400 = false;
+          location.reload();
           this.loading = false;
         })
         .catch((error) => {
           console.log(error);
-          if (error.response.status == 400) this.show400 = true;
-          else this.show503 = true;
           this.loading = false;
+          
         });
     },
   },
@@ -118,7 +115,7 @@ export default {
   padding: 12px 10%;
   border: none;
   color: #fff;
-  background: #C9B158;
+  background: #c9b158;
   font-size: 20px;
   transition: ease 0.5s;
 }

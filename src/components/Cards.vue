@@ -1,8 +1,8 @@
 <template>
-  <div class="hero d-flex" :class="{ 'hero-long': this.width <= 768 }">
+  <div class="hero d-flex">
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md equipment p-3 me-5">
+      <div class="row align-items-center pb-5 justify-content-center">
+        <div class="col-md-5 equipment p-md-3 me-md-5">
           <div class="about p-1">
             <h1 class="text-center">Аренда снаряжения</h1>
             <h4 class="text-center">
@@ -12,7 +12,7 @@
           </div>
           <h1 class="text-center">Аренда снаряжения</h1>
         </div>
-        <div class="col-md bathhouse p-3">
+        <div class="col-md-5 bathhouse p-md-3">
           <div class="about p-1">
             <h1 class="text-center">Баня и сауна</h1>
             <h4 class="text-center">
@@ -21,9 +21,7 @@
           </div>
           <h1 class="text-center">Баня и сауна</h1>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md grill p-3 me-5">
+        <div class="col-md-5 grill p-md-3 me-md-5">
           <div class="about p-1">
             <h1 class="text-center">Приготовление трофеев</h1>
             <h4 class="text-center">
@@ -33,7 +31,7 @@
           </div>
           <h1 class="text-center">Приготовление трофеев</h1>
         </div>
-        <div class="col-md hunting p-3">
+        <div class="col-md-5 hunting p-md-3">
           <div class="about p-1">
             <h1 class="text-center">Охота и рыбалка</h1>
             <h4 class="text-center">
@@ -51,38 +49,17 @@
 <script>
 export default {
   name: "Cards",
-  data() {
-    return { width: null };
-  },
-  methods: {
-    updateWidth() {
-      this.width = window.innerWidth;
-    },
-  },
-  created() {
-    window.addEventListener("resize", this.updateWidth);
-    this.updateWidth();
-  },
 };
 </script>
 <style scoped>
 
-.row-flex {
-  display: flex;
-  flex-flow: row wrap;
-}
 .hero {
   background: #2c3c43;
-  height: 120vh;
   color: white;
-}
-.hero-long{
-      height: 200vh;
 }
 .equipment {
   background: url("~@/assets/equipment.png") no-repeat center;
   height: 40vh;
-  margin: 5vh 0;
   cursor: pointer;
   position: relative;
   background-size: cover;
@@ -109,7 +86,6 @@ export default {
 .grill {
   background: url("~@/assets/grill.png") no-repeat center;
   height: 40vh;
-  margin: 5vh 0;
   cursor: pointer;
   position: relative;
   background-size: cover;
@@ -118,7 +94,6 @@ export default {
   background: url("~@/assets/hunting.png") no-repeat center 20%;
   background-size: cover;
   height: 40vh;
-  margin: 5vh 0;
   cursor: pointer;
   position: relative;
   background-size: cover;
@@ -126,7 +101,6 @@ export default {
 .bathhouse {
   background: url("~@/assets/bathhouse.png") no-repeat center;
   height: 40vh;
-  margin: 5vh 0;
   cursor: pointer;
   position: relative;
   background-size: cover;

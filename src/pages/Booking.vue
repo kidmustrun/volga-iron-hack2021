@@ -15,9 +15,9 @@
       </form>
       <button class="btn_border mt-5" @click="sendDates()">Найти</button>
     </div>
-    <h4 class="date">{{start}} - {{end}}</h4>
     <div v-if="rooms.length" class="select_houses">
-      <h5 class="text-center">Выберите домик</h5>
+      <h4 class="date">{{start}} - {{end}}</h4>
+      <h5 class="text-center">Свободные номера</h5>
       <div class="row" v-for="room in rooms" :key="room.id">
         <div class="col-sm">
           <img :src="`http://domenblin.std-941.ist.mospolytech.ru/lotos/${room.photo}`" />
@@ -33,27 +33,38 @@
       </div>
     </div>
   </div>
+   <div class="text-center mt-4">
+    <Loader v-if="loading"/>
+    </div>
   </div>
 </template>
 
 <script>
 import { postSomething } from "../api/post";
+import Loader from "../components/Loader.vue"
 export default {
   name: "Booking",
+  components:{
+    Loader
+  },
   data() {
     return {
       start: null,
       end: null,
-      rooms: []
+      rooms: [],
+      loading: false
     };
   },
   methods: {
     sendDates() {
+      this.loading = true;
       postSomething("rooms/booking", { start: this.start, end: this.end })
         .then((response) => {
           this.rooms = response.data;
+          this.loading = false
         })
         .catch((error) => {
+          this.loading = false
           console.log(error);
         });
     },

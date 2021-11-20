@@ -12,7 +12,7 @@ export const registerUser = (user) =>
     axios
       .post(`${URL_BASE}/register`, user, requestHeaders)
       .then(function (resp) {
-        const token = resp.headers.authorization;
+        const token = resp.data[1];
         localStorage.setItem("token", token);
         resolve(resp);
       })
@@ -27,7 +27,7 @@ export const loginUser = (user) =>
     axios
       .post(`${URL_BASE}/login`, user, requestHeaders)
       .then(function (resp) {
-        const token = resp.headers.authorization;
+        const token = resp.data[1];
         localStorage.setItem("token", token);
         resolve(resp);
       })

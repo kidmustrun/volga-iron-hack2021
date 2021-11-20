@@ -104,13 +104,20 @@
       Зарегистрироваться
     </button>
     <router-link to="/signin">Войти</router-link>
+    <div class="text-center">
+    <Loader v-if="loading"/>
+    </div>
   </div>
 </template>
 
 <script>
 import { registerUser } from "../api/auth.js";
+import Loader from "../components/Loader.vue";
 export default {
   name: "SignUp",
+  components:{
+    Loader
+  },
   data() {
     return {
       email: "",
@@ -151,8 +158,6 @@ export default {
         })
         .catch((error) => {
           console.log(error);
-          this.errorMessage = error.response.data.error.errors;
-          this.showError = true;
           this.loading = false;
         });
     },
