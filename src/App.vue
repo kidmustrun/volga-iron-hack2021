@@ -3,7 +3,7 @@
     <Header/>
     <Hero/>
     <Main/>
-    <Cards/>
+  
   </div>
 </template>
 
@@ -13,15 +13,14 @@ import "../node_modules/bootstrap/dist/js/bootstrap.js"
 import Header from './components/Header.vue'
 import Hero from './components/Hero.vue'
 import Main from './components/Main.vue'
-import Cards from './components/Cards.vue'
+
 
 export default {
   name: 'App',
   components: {
     Header,
     Hero,
-    Main,
-    Cards
+    Main
   }
 }
 </script>

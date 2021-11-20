@@ -1,5 +1,5 @@
 <template>
-  <div class="position-relative mb-5">
+  <div class="position-relative">
     <img src="@/assets/line_1.svg" class="position-absolute svg-back" />
     <h1 class="text-center pt-5">Что мы предлагаем?</h1>
 
@@ -32,7 +32,7 @@
       </div>
     </div>
     <img src="@/assets/line_2.svg" class="position-absolute svg-back" />
-    <div class="container">
+    <div class="container mb-5">
       <div class="row row-flex align-items-center">
         <div class="col-md">
           <h3 class="text-center">ОТДЫХ С ДРУЗЬЯМИ И СЕМЬЕЙ</h3>
@@ -59,17 +59,45 @@
         </div>
       </div>
       <div class="d-flex justify-content-end">
-        <button class="btn_border align-right mt-3">Забронировать сейчас</button>
+        <button class="btn_border align-right mt-3">
+          Забронировать сейчас
+        </button>
+      </div>
+    </div>
+    <Cards />
+    <div class="container">
+      <h1 class="text-center pt-5">Для детей</h1>
+      <div class="row row-flex align-items-center">
+        <div class="col-md-4" :class="{ 'order-last': this.width <= 768 }">
+          <img src="@/assets/kids.png" />
+        </div>
+        <div class="col-md-8">
+          <p class="text-center">
+            В Каспийском лотосе для отдыхающих с детьми предоставлены спортивные
+            (баскетбол и волейбол) и детские площадки, также есть возможность
+            пребывания с домашними питомцами. А захватывающие прогулки на лодках
+            с семьей принесут бурю положительных эмоций.
+          </p>
+          <p class="text-center">
+            Нахождение на свежем воздухе положительно влиянии на здоровье
+            ребёнка. А физическая активность в сочетании с прогулкой на природе
+            подарит детям положительные эмоции.
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Cards from "./Cards.vue";
 export default {
   name: "Main",
   data() {
     return { width: null };
+  },
+  components: {
+    Cards,
   },
   methods: {
     updateWidth() {
@@ -87,7 +115,7 @@ export default {
   display: flex;
   flex-flow: row wrap;
 }
-.col-md p {
+.col-md, .col-md-8 p {
   font-size: max(1em, min(1.5em, calc(100vw * 4 / 75)));
 }
 img {
