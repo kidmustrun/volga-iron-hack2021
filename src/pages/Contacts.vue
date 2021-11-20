@@ -15,8 +15,7 @@ export default {
   components: {
     Title,
     ContactsInfo
-  },
-  props: ["title", "image"],
+  }
 };
 </script>
 
