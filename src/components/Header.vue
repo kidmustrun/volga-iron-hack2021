@@ -37,6 +37,14 @@
             </li>
           </ul>
           <router-link class="btn_border" to="/booking">Забронировать</router-link>
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <router-link class="nav-link" to="/signup">Регистрация</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/signin">Вход</router-link>
+            </li>
+          </ul>
         </div>
         
          

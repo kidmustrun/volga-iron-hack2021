@@ -7,6 +7,8 @@ import Booking from './pages/Booking.vue'
 import Events from './pages/Events.vue'
 import Houses from './pages/Houses.vue'
 import Account from './pages/Account.vue'
+import SignIn from './pages/SignIn.vue'
+import SignUp from './pages/SignUp.vue'
 
 Vue.use(VueRouter)
 Vue.config.productionTip = false
@@ -17,6 +19,8 @@ const routes = [
   { path: '/booking', component: Booking },
   { path: '/houses', component: Houses },
   { path: '/account', component: Account },
+  { path: '/signin', component: SignIn },
+  { path: '/signup', component: SignUp },
 ]
 const router = new VueRouter({
   mode: "history",
