@@ -71,7 +71,8 @@ export default {
       console.log(this.loading);
       loginUser({ email: this.email, password: this.password, remember: this.remember })
         .then(() => {
-          this.$router.push("/main");
+          this.$router.push("/account");
+          location.reload()
           this.show400 = false;
           this.loading = false;
         })
