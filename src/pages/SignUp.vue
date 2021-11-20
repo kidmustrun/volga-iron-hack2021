@@ -17,11 +17,11 @@
         <input
           type="text"
           class="form-control"
-          id="login"
-          v-model="login"
-          placeholder="login"
+          id="phone"
+          placeholder="+7(9__)___-__-__"
+          v-model="phone"
         />
-        <label for="login">Логин</label>
+        <label for="phone">Телефон</label>
       </div>
       <div class="form-floating">
         <input
@@ -93,6 +93,7 @@
           value="female"
           v-model="gender"
         />
+        {{gender}}
         <label class="form-check-label" for="woman"> Женский </label>
       </div>
       <div class="form-check">
@@ -107,12 +108,6 @@
       Зарегистрироваться
     </button>
     <router-link to="/signin">Войти</router-link>
-    <div v-if="loading" class="cssload-spinner">
-      <div class="cssload-ball cssload-ball-1"></div>
-      <div class="cssload-ball cssload-ball-2"></div>
-      <div class="cssload-ball cssload-ball-3"></div>
-      <div class="cssload-ball cssload-ball-4"></div>
-    </div>
   </div>
 </template>
 
@@ -123,7 +118,7 @@ export default {
   data() {
     return {
       email: "",
-      login: "",
+      phone: "",
       name: "",
       surname: "",
       lastname: "",
@@ -144,7 +139,7 @@ export default {
       this.showError = false;
       registerUser({
         email: this.email,
-        username: this.login,
+        phone: this.phone,
         first_name: this.name,
         second_name: this.surname,
         last_name: this.lastname,
@@ -156,7 +151,7 @@ export default {
         remember: this.remember,
       })
         .then(() => {
-          this.$router.push("/main");
+          this.$router.push("/account");
           this.loading = false;
         })
         .catch((error) => {
