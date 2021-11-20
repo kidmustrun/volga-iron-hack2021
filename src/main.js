@@ -9,8 +9,11 @@ import Houses from "./pages/Houses.vue";
 import Account from "./pages/Account.vue";
 import SignIn from "./pages/SignIn.vue";
 import SignUp from "./pages/SignUp.vue";
-import ViewHouse from "./pages/ViewHouse.vue";
-import PayHouse from "./pages/PayHouse.vue";
+import ViewHouse from './pages/ViewHouse.vue';
+import PayHouse from './pages/PayHouse.vue';
+import Admin from './pages/Admin.vue';
+import AdminRooms from './pages/AdminRooms.vue';
+import AdminUsers from './pages/AdminUsers.vue';
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -22,33 +25,15 @@ const isAuthenticated = () => {
 const routes = [
   { path: "/", component: Home },
   { path: "/events", component: Events },
-  { path: "/view_house", component: ViewHouse },
+  { path: "/admin", component: Admin },
+  { path: "/adminrooms", component: AdminRooms },
+  { path: "/adminusers", component: AdminUsers },
+  { path: '/view_house', component: ViewHouse },
   { path: "/contacts", component: Contacts },
-  {
-    path: "/pay_house/:id/:start/:end",
-    component: PayHouse,
-    beforeEnter(to, from, next) {
-      if (isAuthenticated()) {
-        next();
-      } else {
-        next("/signin");
-      }
-    },
-  },
+  { path: "/pay_house", component: PayHouse },
   {
     path: "/booking",
     component: Booking,
-    beforeEnter(to, from, next) {
-      if (isAuthenticated()) {
-        next();
-      } else {
-        next("/signin");
-      }
-    },
-  },
-  {
-    path: "/booking/:id/:start/:end",
-    component: ViewHouse,
     beforeEnter(to, from, next) {
       if (isAuthenticated()) {
         next();
