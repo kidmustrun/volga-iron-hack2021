@@ -1,7 +1,7 @@
 <template>
   <div>
     
-    <Title title="Контакты" image="contacts_hero.png"/>
+    <Title title="Контакты" image="contacts_hero.jpg"/>
     <ContactsInfo/>
   </div>
 </template>
