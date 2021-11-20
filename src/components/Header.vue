@@ -70,5 +70,13 @@ nav a, span {
   padding: 5px 15px;
   font-size: 20px;
   margin: 0px 10px;
+   transition: 0.5s ease;
+}
+.btn_border:hover {
+  border: solid 3px #fdd704;
+  background: #fdd704;
+  color: #000;
+  padding: 5px 15px;
+  transition: 0.5s ease;
 }
 </style>
