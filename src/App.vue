@@ -1,27 +1,18 @@
 <template>
   <div id="app">
-    <Header />
-    <Hero />
-    <Main />
-    <Footer />
+    <Home />
   </div>
 </template>
 
 <script>
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.js";
-import Header from "./components/Header.vue";
-import Hero from "./components/Hero.vue";
-import Main from "./components/Main.vue";
-import Footer from "./components/Footer.vue";
+import Home from "./pages/Home.vue";
 
 export default {
   name: "App",
   components: {
-    Header,
-    Hero,
-    Main,
-    Footer,
+    Home,
   },
 };
 </script>
