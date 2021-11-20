@@ -21,7 +21,7 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse mt-2" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse mt-2 text-center" id="navbarSupportedContent">
           <div class="nav-item">
             <span class="nav-link pt-0 pb-0 ps-0">8-927-284-41-93</span>
             <span class="nav-link pt-0 pb-0 ps-0">soc_zinovevana@pvrr.ru</span>

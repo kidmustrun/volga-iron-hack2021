@@ -96,10 +96,6 @@
         {{gender}}
         <label class="form-check-label" for="woman"> Женский </label>
       </div>
-      <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="remember" v-model="remember">
-    <label class="form-check-label" for="remember">Запомнить меня</label>
-  </div>
       <div v-show="showError" class="mt-2 alert alert-danger" >
         {{ this.errorMessage }}
       </div>
@@ -127,7 +123,6 @@ export default {
       org: "",
       gender: "",
       role: "",
-      remember: false,
       showError: false,
       loading: false,
       errorMessage: "",
@@ -148,10 +143,10 @@ export default {
         organisation: +this.org,
         gender: this.gender,
         role: this.role,
-        remember: this.remember,
+        remember: true,
       })
         .then(() => {
-          this.$router.push("/account");
+          this.$router.push("/");
           this.loading = false;
         })
         .catch((error) => {

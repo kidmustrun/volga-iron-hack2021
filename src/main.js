@@ -34,6 +34,17 @@ const routes = [
       }
     },
   },
+  {
+    path: "/booking/:id",
+    component: ViewHouse,
+    beforeEnter(to, from, next) {
+      if (isAuthenticated()) {
+        next();
+      } else {
+        next("/signin");
+      }
+    },
+  },
   { path: "/houses", component: Houses },
   {
     path: "/account",
