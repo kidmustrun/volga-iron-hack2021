@@ -9,6 +9,7 @@ import Houses from "./pages/Houses.vue";
 import Account from "./pages/Account.vue";
 import SignIn from "./pages/SignIn.vue";
 import SignUp from "./pages/SignUp.vue";
+import ViewHouse from './pages/ViewHouse.vue';
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -20,6 +21,7 @@ const isAuthenticated = () => {
 const routes = [
   { path: "/", component: Home },
   { path: "/events", component: Events },
+  { path: '/view_house', component: ViewHouse },
   { path: "/contacts", component: Contacts },
   {
     path: "/booking",

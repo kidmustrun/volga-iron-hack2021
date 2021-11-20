@@ -73,7 +73,7 @@ export default {
 }
 .hero {
   background: #2c3c43;
-  height: 100vh;
+  height: 120vh;
   color: white;
 }
 .hero-long{
