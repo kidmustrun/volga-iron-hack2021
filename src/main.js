@@ -6,6 +6,7 @@ import Contacts from './pages/Contacts.vue'
 import Booking from './pages/Booking.vue'
 import Events from './pages/Events.vue'
 import Houses from './pages/Houses.vue'
+import Account from './pages/Account.vue'
 
 Vue.use(VueRouter)
 Vue.config.productionTip = false
@@ -15,6 +16,7 @@ const routes = [
   { path: '/contacts', component: Contacts },
   { path: '/booking', component: Booking },
   { path: '/houses', component: Houses },
+  { path: '/account', component: Account },
 ]
 const router = new VueRouter({
   mode: "history",
