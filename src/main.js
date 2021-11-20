@@ -66,7 +66,7 @@ const routes = [
       }
     },
   },
-  { path: "*", component: Home },
+  { path: "*", redirect: "/" },
 ];
 const router = new VueRouter({
   mode: "history",
