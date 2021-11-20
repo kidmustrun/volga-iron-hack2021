@@ -25,7 +25,7 @@
                     <p class="title">Двухместный домик</p>
                     <div class="price">
                       <p class="price_box">от 10 000 руб</p>
-                      <router-link class="btn_border align-right mt-3" to="/booking">
+                      <router-link class="btn_border align-right mt-3" to="/view_house">
                         Выбрать
                       </router-link>
                     </div>

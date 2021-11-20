@@ -10,6 +10,7 @@ import Account from "./pages/Account.vue";
 import SignIn from "./pages/SignIn.vue";
 import SignUp from "./pages/SignUp.vue";
 import ViewHouse from './pages/ViewHouse.vue';
+import PayHouse from './pages/PayHouse.vue';
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -23,6 +24,7 @@ const routes = [
   { path: "/events", component: Events },
   { path: '/view_house', component: ViewHouse },
   { path: "/contacts", component: Contacts },
+  { path: "/pay_house", component: PayHouse },
   {
     path: "/booking",
     component: Booking,

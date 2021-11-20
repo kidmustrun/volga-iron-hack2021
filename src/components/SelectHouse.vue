@@ -50,7 +50,7 @@
         <p class="type">Двухместный домик + трёхразовое питание + аренда катера</p>
         <h3 class="itog"><b>Итог: 5 000 руб.</b></h3>
          <div class="d-flex justify-content-center">
-             <router-link class="btn_border align-right mt-3" to="/booking">
+             <router-link class="btn_border align-right mt-3" to="/pay_house">
                Забронировать
            </router-link>
       </div>
