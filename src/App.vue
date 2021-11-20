@@ -1,18 +1,23 @@
 <template>
   <div id="app">
-    <Home />
+    <Header />
+<router-view></router-view>
+
+    <Footer />
   </div>
 </template>
 
 <script>
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.js";
-import Home from "./pages/Home.vue";
+import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
   name: "App",
   components: {
-    Home,
+    Header,
+    Footer,
   },
 };
 </script>
