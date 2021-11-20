@@ -17,12 +17,13 @@ export default {
 .hero {
     background: center;
   background-size: cover;
-  height: 25vh;
+  height: 40vh;
   color: white;
 }
 .slogan {
   font-size: max(1.5em, min(3.5em, calc(100vw * 4 / 75)));
   white-space: nowrap;
   margin: 10vh 5vw;
+  width: 80vw;
 }
 </style>

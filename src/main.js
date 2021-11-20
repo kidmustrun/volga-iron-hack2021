@@ -3,12 +3,14 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import Home from './pages/Home.vue'
 import Contacts from './pages/Contacts.vue'
+import Booking from './pages/Booking.vue'
 
 Vue.use(VueRouter)
 Vue.config.productionTip = false
 const routes = [
   { path: '/', component: Home },
   { path: '/contacts', component: Contacts },
+  { path: '/booking', component: Booking },
 ]
 const router = new VueRouter({
   mode: "history",
