@@ -59,9 +59,9 @@
         </div>
       </div>
       <div class="d-flex justify-content-end">
-        <button class="btn_border align-right mt-3">
+        <router-link class="btn_border align-right mt-3" to="/booking">
           Забронировать сейчас
-        </button>
+        </router-link>
       </div>
     </div>
     <Cards />
@@ -134,6 +134,7 @@ img {
   color: #322d3a;
   background: transparent;
   font-size: 20px;
+  text-decoration: none;
   transition: ease 0.5s;
 }
 .btn_border:hover {

@@ -2,10 +2,10 @@
   <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand d-flex flex-column align-items-center" href="#">
+        <router-link class="navbar-brand d-flex flex-column align-items-center" to="/">
           <img src="@/assets/logo.png" alt="logo" height="60" />
           <span class="logo-text">Каспийский Лотос</span>
-        </a>
+        </router-link>
          
               <button
           class="navbar-toggler"
@@ -33,10 +33,10 @@
               <a class="nav-link" href="#">Мероприятия</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Контакты</a>
+              <router-link class="nav-link" to="/contacts">Контакты</router-link>
             </li>
           </ul>
-          <button class="btn_border">Забронировать</button>
+          <router-link class="btn_border" to="/booking">Забронировать</router-link>
         </div>
         
          
@@ -71,6 +71,7 @@ nav a, span {
   font-size: 20px;
   margin: 0px 10px;
    transition: 0.5s ease;
+   text-decoration: none;
 }
 .btn_border:hover {
   border: solid 3px #fdd704;
