@@ -71,7 +71,7 @@
         <div class="col-md-4" :class="{ 'order-last': this.width <= 768 }">
           <img src="@/assets/kids.png" />
         </div>
-        <div class="col-md-8">
+        <div class="col-md-7">
           <p class="text-center">
             В Каспийском лотосе для отдыхающих с детьми предоставлены спортивные
             (баскетбол и волейбол) и детские площадки, также есть возможность

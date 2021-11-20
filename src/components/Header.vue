@@ -122,7 +122,7 @@ span {
   padding: 5px 15px;
   transition: 0.5s ease;
 }
-span .nav-link {
+.nav-link {
   cursor: pointer;
 }
 </style>
