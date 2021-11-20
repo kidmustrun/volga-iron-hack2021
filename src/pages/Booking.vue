@@ -18,10 +18,10 @@
     <div v-if="rooms.length" class="select_houses">
       <h4 class="date">{{start}} - {{end}}</h4>
       <h5 class="text-center">Свободные номера</h5>
-      <div class="row" v-for="room in rooms" :key="room.id">
-        <div class="col-sm">
-          <img :src="`http://domenblin.std-941.ist.mospolytech.ru/lotos/${room.photo}`" />
-          <div class="info">
+      <div class="row">
+        <div class="col-md" v-for="room in rooms" :key="room.id">
+          <img class="room-photo" :src="`http://domenblin.std-941.ist.mospolytech.ru/lotos/${room.photo}`" />
+            <div class="info">
             <p class="title">{{room.room_name}}</p>
             <div class="price">
               <p class="price_box">от {{room.price_per_night}} руб</p>
@@ -29,7 +29,7 @@
                 Выбрать
               </router-link>
             </div>
-        </div>
+            </div>
       </div>
     </div>
   </div>
@@ -86,6 +86,10 @@ input {
   height: 6vh;
   padding: 2%;
 }
+.room-photo {
+  object-fit: cover;
+  width: 100%
+}
 .btn_border {
   padding: 12px 10%;
   border: none;
@@ -108,20 +112,7 @@ h5 {
   font-weight: bold;
   font-size: 24px;
 }
-.row {
-  margin-top: 7vh;
-  display: flex;
-  align-items: center;
-  row-gap: 3vh;
-  column-gap: 5vh;
-}
-.row img {
-  margin: auto auto;
-  max-width: 100%;
-  height: auto;
-  max-height: 70%;
-  display: block;
-}
+
 .info {
   padding-right: 3vh;
   padding-left: 5vh;
@@ -162,12 +153,6 @@ h5 {
   .price {
     flex-direction: column;
     justify-content: center;
-  }
-  .row {
-    flex-direction: column;
-  }
-  .info {
-    height: 26vh;
   }
   .title,
   .date {

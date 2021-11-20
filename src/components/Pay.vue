@@ -13,7 +13,7 @@
       />
       <div class="desc">
         <div class="content">
-          <p class="time">Количество ночей: {{sum.data[1]}}</p>
+          <p class="time">Количество ночей: {{ sum.data[1] }}</p>
           <p class="period">
             {{ $route.params.start }} - {{ $route.params.end }}
           </p>
@@ -33,40 +33,38 @@
               <p class="type_price">1800 руб</p>
             </div>
           </div>
-          <p class="outcome">Итог: {{sum.data[0]}} руб.</p>
+          <p class="outcome">Итог: {{ sum.data[0] }} руб.</p>
         </div>
       </div>
-       
     </div>
-     <div v-else class="text-center">
-    <Loader/>
+    <div v-else class="text-center">
+      <Loader />
     </div>
-   <div v-if="room.room_name" class="d-flex justify-content-end">
-      <router-link
+    <div v-if="room.room_name" class="d-flex justify-content-end">
+      <button
         class="btn_border align-right mt-3"
-        to="/booking"
         @click="onPay()"
       >
         Оплатить
-      </router-link>
+      </button>
     </div>
   </div>
 </template>
 <script>
 import { getSomething } from "../api/get";
 import { postSomething } from "../api/post";
-import Loader from "./Loader.vue"
+import Loader from "./Loader.vue";
 export default {
   name: "Pay",
-  components:{
-      Loader
+  components: {
+    Loader,
   },
   data() {
     return {
       room: {},
       user: {},
       sum: 0,
-      services: []
+      services: [],
     };
   },
   created() {
@@ -82,7 +80,14 @@ export default {
   },
   methods: {
     onPay() {
-      postSomething();
+      postSomething(`rooms/booking/${this.$route.params.id}`, {
+        start: this.$route.params.start,
+        end: this.$route.params.end,
+        services: this.services,
+      }).then(() => {
+        this.$router.push("/");
+        location.reload();
+      });
     },
     roomOpen: function () {
       return `/booking/${this.$route.params.id}/${this.$route.params.start}/${this.$route.params.end}`;
