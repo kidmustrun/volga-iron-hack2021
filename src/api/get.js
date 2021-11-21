@@ -17,11 +17,9 @@ export const getSomething = (dataName) =>
 
     axios(config)
       .then(function (response) {
-        console.log(response)
         resolve(response);
       })
       .catch(function (error) {
-        console.log(error);
         reject(error);
       });
   });

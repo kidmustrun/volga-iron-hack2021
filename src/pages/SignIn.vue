@@ -74,8 +74,7 @@ export default {
           location.reload();
           this.loading = false;
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
           this.loading = false;
           
         });

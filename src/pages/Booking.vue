@@ -63,13 +63,11 @@ export default {
           this.rooms = response.data;
           this.loading = false
         })
-        .catch((error) => {
+        .catch(() => {
           this.loading = false
-          console.log(error);
         });
     },
      roomOpen: function (id) {
-       console.log(`/booking/${id}/${this.start}/${this.end}`)
       return `/booking/${id}/${this.start}/${this.end}`;
     },
   },

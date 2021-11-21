@@ -8,7 +8,6 @@ const requestHeaders = {
 };
 export const registerUser = (user) =>
   new Promise((resolve, reject) => {
-    console.log(`${URL_BASE}/register`, user, requestHeaders);
     axios
       .post(`${URL_BASE}/register`, user, requestHeaders)
       .then(function (resp) {
@@ -23,7 +22,6 @@ export const registerUser = (user) =>
   });
 export const loginUser = (user) =>
   new Promise((resolve, reject) => {
-    console.log(`${URL_BASE}/login`, user, requestHeaders);
     axios
       .post(`${URL_BASE}/login`, user, requestHeaders)
       .then(function (resp) {

@@ -75,7 +75,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="booking in bookings" :key="booking.id">
+              <tr v-for="booking in bookings" :key="booking.id" :class="{'bg-danger': !booking.available}">
                 <th scope="row">{{ booking.id }}</th>
                 <td>{{ booking.start }}</td>
                 <td>{{ booking.end }}</td>
@@ -123,17 +123,15 @@ export default {
     getSomething("api/v1/user/myroom").then(
       (response) => (this.bookings = response.data)
     );
-    console.log(this.bookings + "bookings");
   },
   methods: {
     cancelReserv(id) {
       postSomething(`api/v1/user/myroom/${id}`, id).then(() => {
         location.reload();
-        console.log("Бронь удалена");
       });
     },
-  },
-};
+}
+}
 </script>
 
 <style>

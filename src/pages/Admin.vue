@@ -48,114 +48,152 @@
         </li>
       </ul>
     </div>
-<div class="tab-content" id="myTabContent">
-        <div
-          class="tab-pane fade show active"
-          id="bookings"
-          role="tabpanel"
-          aria-labelledby="home-tab"
-        >
-          <table class="booking m-3">
-        <thead>
-          <tr>
-            <th>ID брони</th>
-            <th>ID клиента</th>
-            <th>Сумма</th>
-            <th>Статус</th>
-            <th>Отменить</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="booking in bookings" :key="booking.id" :class="{'bg-danger': !booking.available}">
-            <td aria-label="ID брони">{{booking.id}}</td>
-            <td aria-label="ID клиента">{{booking.user_id}}</td>
-            <td aria-label="Сумма">{{booking.summ}}</td>
-            <td><span v-if="booking.available"> Забронировано </span><span v-else>Отменено</span></td>
-            <td  aria-label="Отменить"><button class="btn_border" v-if="booking.available" @click="cancelReserv(booking.id)">Отменить</button></td>
-          </tr>
-        </tbody>
-      </table>
-        </div>
-        <div
-          class="tab-pane fade"
-          id="rooms"
-          role="tabpanel"
-          aria-labelledby="profile-tab"
-        >
-         <table class="booking m-3">
-        <thead>
-          <tr>
-            <th>ID номера</th>
-            <th>Описание</th>
-            <th>Цена за ночь</th>
-            <th>Заблокировать</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="room in rooms" :key="room.id">
-            <td aria-label="ID номера">{{room.id}}</td>
-            <td aria-label="Описание">{{room.room_name}}, {{room.about_room}}</td>
-            <td aria-label="Цена за ночь">{{room.price_per_night}}</td>
-            <td aria-label="Заблокировать"></td>
-          </tr>
-        </tbody>
-      </table>
-        </div>
-        <div
-          class="tab-pane fade"
-          id="users"
-          role="tabpanel"
-          aria-labelledby="profile-tab"
-        >
-         <table class="booking m-3">
-        <thead>
-           <tr >
-            <th>ID</th>
-            <th>Имя</th>
-            <th>Фамилия</th>
-            <th>Удалить</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="user in users" :key="user.id" >
-            <td aria-label="ID">{{user.id}}</td>
-            <td aria-label="Имя">{{user.first_name}}</td>
-            <td aria-label="Фамилия">{{user.second_name}}</td>
-            <td aria-label="Удалить"></td>
-          </tr>
-        </tbody>
-      </table>
-        </div>
+    <div class="tab-content" id="myTabContent">
+      <div
+        class="tab-pane fade show active"
+        id="bookings"
+        role="tabpanel"
+        aria-labelledby="home-tab"
+      >
+        <table class="booking m-3">
+          <thead>
+            <tr>
+              <th>ID брони</th>
+              <th>ID клиента</th>
+              <th>Сумма</th>
+              <th>Статус</th>
+              <th>Отменить</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="booking in bookings"
+              :key="booking.id"
+              :class="{ 'bg-danger': !booking.available }"
+            >
+              <td aria-label="ID брони">{{ booking.id }}</td>
+              <td aria-label="ID клиента">{{ booking.user_id }}</td>
+              <td aria-label="Сумма">{{ booking.summ }}</td>
+              <td>
+                <span v-if="booking.available"> Забронировано </span
+                ><span v-else>Отменено</span>
+              </td>
+              <td aria-label="Отменить">
+                <button
+                  class="btn_border"
+                  v-if="booking.available"
+                  @click="cancelReserv(booking.id)"
+                >
+                  Отменить
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+      <div
+        class="tab-pane fade"
+        id="rooms"
+        role="tabpanel"
+        aria-labelledby="profile-tab"
+      >
+        <table class="booking m-3">
+          <thead>
+            <tr>
+              <th>ID номера</th>
+              <th>Описание</th>
+              <th>Цена за ночь</th>
+              <th>Заблокировать</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="room in rooms" :key="room.id">
+              <td aria-label="ID номера">{{ room.id }}</td>
+              <td aria-label="Описание">
+                {{ room.room_name }}, {{ room.about_room }}
+              </td>
+              <td aria-label="Цена за ночь">{{ room.price_per_night }}</td>
+              <td aria-label="Заблокировать">
+                <button
+                  v-if="room.available"
+                  class="btn_border"
+                  @click="blockRoom(room.id)"
+                >
+                  Заблокировать</button
+                ><button
+                  v-else
+                  class="btn_border"
+                  @click="blockRoom(room.id)"
+                >
+                  Разблокировать
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="users"
+        role="tabpanel"
+        aria-labelledby="profile-tab"
+      >
+        <table class="booking m-3">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Имя</th>
+              <th>Фамилия</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="user in users" :key="user.id">
+              <td aria-label="ID">{{ user.id }}</td>
+              <td aria-label="Имя">{{ user.first_name }}</td>
+              <td aria-label="Фамилия">{{ user.second_name }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </template>
  
 <script>
-import { getSomething } from '../api/get';
-import { postSomething } from '../api/post';
+import { getSomething } from "../api/get";
+import { postSomething } from "../api/post";
 export default {
   name: "Admin",
-  data(){
-    return{
+  data() {
+    return {
       rooms: [],
-      bookings:[],
-      users: []
-    }
+      bookings: [],
+      users: [],
+    };
   },
-  created(){
-    getSomething('api/v1/admin/rooms').then((response) => this.rooms = response.data)
-    getSomething('api/v1/admin/bookings').then((response) => this.bookings = response.data)
-    getSomething('api/v1/admin/users').then((response) => this.users = response.data)
-    console.log(this.users)
+  created() {
+    getSomething("api/v1/admin/rooms").then(
+      (response) => (this.rooms = response.data)
+    );
+    getSomething("api/v1/admin/bookings").then(
+      (response) => (this.bookings = response.data)
+    );
+    getSomething("api/v1/admin/users").then(
+      (response) => (this.users = response.data)
+    );
   },
-  methods:{
+  methods: {
     cancelReserv(id) {
       postSomething(`api/v1/user/myroom/${id}`, id).then(() => {
         location.reload();
-        console.log("Бронь удалена");
       });
     },
-  }
+    blockRoom(id) {
+      postSomething(`api/v1/admin/rooms/disabled/${id}`, id).then(() => {
+        location.reload();
+      });
+    },
+  },
 };
 </script>
 
