@@ -1,12 +1,12 @@
 const token = localStorage.getItem("token");
-const URL_BASE = "http://3aca-95-165-9-250.ngrok.io/";
+const URL_BASE = "http://b6da-95-165-9-250.ngrok.io";
 export const getSomething = (dataName) =>
   new Promise((resolve, reject) => {
     var axios = require("axios");
 
     var config = {
       method: "get",
-      url: `${URL_BASE}${dataName}`,
+      url: `${URL_BASE}/${dataName}`,
       headers: {
         Authorization: token,
         Accept: "*/*",

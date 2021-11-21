@@ -2,7 +2,7 @@
   <div class="container">
     <div class="block_back d-flex">
       <img src="@/assets/back.png" alt="" />
-      <router-link class="btn align-right mt-3" :to="roomOpen()"
+      <router-link class="btn align-right mt-3" :to="back()"
         >НАЗАД</router-link
       >
     </div>
@@ -25,12 +25,10 @@
           <p class="house">Дополнительные услуги:</p>
           <div class="choice">
             <div class="choice_services">
-              <p class="type_house">3-разовое питание</p>
-              <p class="type_house">аренда катера</p>
+              <p class="type_house" v-for="service in sum.data[2]" :key="service.id">{{service.name}}</p>
             </div>
             <div>
-              <p class="type_price">200 руб</p>
-              <p class="type_price">1800 руб</p>
+              <p class="type_price" v-for="service in sum.data[2]" :key="service.id">{{service.price}}</p>
             </div>
           </div>
           <p class="outcome">Итог: {{ sum.data[0] }} руб.</p>
@@ -41,10 +39,7 @@
       <Loader />
     </div>
     <div v-if="room.room_name" class="d-flex justify-content-end">
-      <button
-        class="btn_border align-right mt-3"
-        @click="onPay()"
-      >
+      <button class="btn_border align-right mt-3" @click="onPay()">
         Оплатить
       </button>
     </div>
@@ -68,6 +63,17 @@ export default {
     };
   },
   created() {
+    let servicesParams = [
+      this.$route.params.service1,
+      this.$route.params.service2,
+      this.$route.params.service3,
+    ];
+    servicesParams = servicesParams.filter(function (element) {
+      return element !== undefined;
+    });
+    this.services = servicesParams.map(function (number) {
+      return { id: number };
+    });
     getSomething(`rooms/${this.$route.params.id}`).then(
       (resp) => (this.room = resp.data)
     );
@@ -77,6 +83,8 @@ export default {
       end: this.$route.params.end,
       services: this.services,
     }).then((response) => (this.sum = response));
+    
+
   },
   methods: {
     onPay() {
@@ -85,11 +93,11 @@ export default {
         end: this.$route.params.end,
         services: this.services,
       }).then(() => {
-        this.$router.push("/");
         location.reload();
+        this.$router.push("/");
       });
     },
-    roomOpen: function () {
+    back: function () {
       return `/booking/${this.$route.params.id}/${this.$route.params.start}/${this.$route.params.end}`;
     },
   },
@@ -129,7 +137,6 @@ export default {
 .desc {
   padding: 2%;
   border: rgba(50, 69, 76, 0.19) 1px solid;
-  height: 67vh;
   width: 100%;
   box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1);
   background-color: #fbfbfb;

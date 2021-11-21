@@ -69,6 +69,7 @@ export default {
         });
     },
      roomOpen: function (id) {
+       console.log(`/booking/${id}/${this.start}/${this.end}`)
       return `/booking/${id}/${this.start}/${this.end}`;
     },
   },

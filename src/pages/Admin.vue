@@ -66,10 +66,10 @@
         </thead>
         <tbody>
           <tr>
-            <td aria-label="ID брони">8:00-12:00</td>
-            <td aria-label="ID клиента">Николай</td>
-            <td aria-label="Сумма">Нет</td>
-            <td aria-label="Отменить">Ирина сделай кнопку</td>
+            <td aria-label="ID брони">32521</td>
+            <td aria-label="ID клиента">2245</td>
+            <td aria-label="Сумма">3000</td>
+            <td aria-label="Отменить"></td>
           </tr>
         </tbody>
       </table>
@@ -91,10 +91,10 @@
         </thead>
         <tbody>
           <tr>
-            <td aria-label="ID номера">8:00-12:00</td>
-            <td aria-label="Описание">Николай</td>
-            <td aria-label="Цена за ночь">Нет</td>
-            <td aria-label="Заблокировать">Ирина сделай кнопку</td>
+            <td aria-label="ID номера">1</td>
+            <td aria-label="Описание">Стандарт</td>
+            <td aria-label="Цена за ночь">5000</td>
+            <td aria-label="Заблокировать"></td>
           </tr>
         </tbody>
       </table>
@@ -109,17 +109,17 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th>Номер</th>
+            <th>Имя</th>
             <th>Фамилия</th>
             <th>Удалить</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td aria-label="ID">8:00-12:00</td>
-            <td aria-label="Номер">Никвпыолай</td>
-            <td aria-label="Фамилия">Нет</td>
-            <td aria-label="Удалить">Ирина сделай кнопку</td>
+            <td aria-label="ID">2445</td>
+            <td aria-label="Номер">Ирина</td>
+            <td aria-label="Фамилия">Громова</td>
+            <td aria-label="Удалить"></td>
           </tr>
         </tbody>
       </table>

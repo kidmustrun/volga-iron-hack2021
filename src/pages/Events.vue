@@ -8,12 +8,12 @@
     </h1>
     <Cards />
     <div class="position-relative">
-        <img src="@/assets/line_1.svg" class="position-absolute svg-back" />
+        <img src="@/assets/line_1.svg" class="position-absolute svg-back" style="z-index: -1; width: 100vw"/>
     <div class="container">
       <h3 class="mt-5 mb-5 text-center">Аренда оборудования</h3>
       <div class="row align-items-center justify-content-center">
         <div class="col-md d-flex justify-content-center">
-          <img src="@/assets/events_equip.png" />
+          <img class="w-50" src="@/assets/events_equip.png" />
         </div>
         <div class="col-md">
           <div class="events_desc p-5">
@@ -48,16 +48,16 @@
           </div>
         </div>
          <div class="col-md d-flex justify-content-center">
-          <img src="@/assets/events_bath.png" />
+          <img class="w-50" src="@/assets/events_bath.png" />
         </div>
       </div>
     </div>
-     <img src="@/assets/line_2.svg" class="position-absolute svg-back" />
+     <img src="@/assets/line_2.svg" class="position-absolute svg-back" style="z-index: -1; width: 100vw"/>
     <div class="container">
       <h3 class="mt-5 mb-5 text-center">Приготовление трофеев</h3>
       <div class="row align-items-center justify-content-center">
         <div class="col-md d-flex justify-content-center">
-          <img src="@/assets/events_food.png" />
+          <img class="w-50" src="@/assets/events_food.png" />
         </div>
         <div class="col-md">
           <div class="events_desc p-5">
@@ -92,7 +92,7 @@
           </div>
         </div>
         <div class="col-md d-flex justify-content-center">
-          <img src="@/assets/events_hunting.png" />
+          <img class="w-50" src="@/assets/events_hunting.png" />
         </div>
       </div>
     </div>
@@ -124,19 +124,7 @@ export default {
 };
 </script>
 
-<style>
-.col-md img {
-  max-width: 100%;
-  height: auto;
-  max-height: 50vh;
-  display: block;
-}
-@media screen and (max-width: 768px) {
-    .col-md img{
-        width: 100vw;
-        object-fit: cover;
-    }
-}
+<style scoped>
 .events_desc {
   background-color: #32454c;
   color: #fff;
@@ -145,4 +133,11 @@ export default {
   z-index: -100;
   width: 100vw;
 }
+@media screen and (max-width: 768px) {
+    .col-md img{
+        width: 100vw;
+        object-fit: cover;
+    }
+}
+
 </style>

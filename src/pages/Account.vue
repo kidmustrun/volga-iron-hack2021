@@ -48,7 +48,7 @@
               <b>Отчество: </b>{{ user.last_name }}
             </li>
             <li class="list-group-item"><b>Пол: </b>{{ user.gender }}</li>
-            <li class="list-group-item"><b>Почта: </b>{{ user.roles }}</li>
+            <li class="list-group-item"><b>Почта: </b>{{ user.email }}</li>
             <li class="list-group-item">
               <b>Номер телефона: </b>{{ user.phone }}
             </li>

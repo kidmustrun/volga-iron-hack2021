@@ -38,6 +38,28 @@ const routes = [
       }
     },
   },
+  {
+    path: "/booking/:id/:start/:end",
+    component: ViewHouse,
+    beforeEnter(to, from, next) {
+      if (isAuthenticated()) {
+        next();
+      } else {
+        next("/signin");
+      }
+    },
+  },
+  {
+    path: "/pay_house/:id/:start/:end/:service1?/:service2?/:service3?/",
+    component: PayHouse,
+    beforeEnter(to, from, next) {
+      if (isAuthenticated()) {
+        next();
+      } else {
+        next("/signin");
+      }
+    },
+  },
   { path: "/houses", component: Houses },
   {
     path: "/account",
