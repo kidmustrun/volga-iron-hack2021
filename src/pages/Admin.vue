@@ -65,10 +65,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td aria-label="ID брони">32521</td>
-            <td aria-label="ID клиента">2245</td>
-            <td aria-label="Сумма">3000</td>
+          <tr v-for="booking in bookings" :key="booking.id">
+            <td aria-label="ID брони">{{booking.id}}</td>
+            <td aria-label="ID клиента">{{booking.user_id}}</td>
+            <td aria-label="Сумма">{{booking.summ}}</td>
             <td aria-label="Отменить"></td>
           </tr>
         </tbody>
@@ -90,10 +90,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td aria-label="ID номера">1</td>
-            <td aria-label="Описание">Стандарт</td>
-            <td aria-label="Цена за ночь">5000</td>
+          <tr v-for="room in rooms" :key="room.id">
+            <td aria-label="ID номера">{{room.id}}</td>
+            <td aria-label="Описание">{{room.room_name}}, {{room.about_room}}</td>
+            <td aria-label="Цена за ночь">{{room.price_per_night}}</td>
             <td aria-label="Заблокировать"></td>
           </tr>
         </tbody>
@@ -107,7 +107,7 @@
         >
          <table class="booking m-3">
         <thead>
-          <tr>
+           <tr >
             <th>ID</th>
             <th>Имя</th>
             <th>Фамилия</th>
@@ -115,10 +115,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td aria-label="ID">2445</td>
-            <td aria-label="Номер">Ирина</td>
-            <td aria-label="Фамилия">Громова</td>
+          <tr v-for="user in users" :key="user.id">
+            <td aria-label="ID">{{user.id}}</td>
+            <td aria-label="Имя">{{user.first_name}}</td>
+            <td aria-label="Фамилия">{{user.second_name}}</td>
             <td aria-label="Удалить"></td>
           </tr>
         </tbody>
@@ -129,8 +129,22 @@
 </template>
  
 <script>
+import { getSomething } from '../api/get';
 export default {
   name: "Admin",
+  data(){
+    return{
+      rooms: [],
+      bookings:[],
+      users: []
+    }
+  },
+  created(){
+    getSomething('api/v1/admin/rooms').then((response) => this.rooms = response.data)
+    getSomething('api/v1/admin/bookings').then((response) => this.bookings = response.data)
+    getSomething('api/v1/admin/users').then((response) => this.users = response.data)
+    console.log(this.users)
+  }
 };
 </script>
 
