@@ -12,8 +12,6 @@ import SignUp from "./pages/SignUp.vue";
 import ViewHouse from './pages/ViewHouse.vue';
 import PayHouse from './pages/PayHouse.vue';
 import Admin from './pages/Admin.vue';
-import AdminRooms from './pages/AdminRooms.vue';
-import AdminUsers from './pages/AdminUsers.vue';
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -26,8 +24,6 @@ const routes = [
   { path: "/", component: Home },
   { path: "/events", component: Events },
   { path: "/admin", component: Admin },
-  { path: "/adminrooms", component: AdminRooms },
-  { path: "/adminusers", component: AdminUsers },
   { path: '/view_house', component: ViewHouse },
   { path: "/contacts", component: Contacts },
   { path: "/pay_house", component: PayHouse },

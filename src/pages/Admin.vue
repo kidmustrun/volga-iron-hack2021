@@ -9,10 +9,10 @@
             class="nav-link active"
             id="home-tab"
             data-bs-toggle="tab"
-            data-bs-target="#home"
+            data-bs-target="#bookings"
             type="button"
             role="tab"
-            aria-controls="home"
+            aria-controls="bookings"
             aria-selected="true"
           >
             Брони
@@ -23,13 +23,27 @@
             class="nav-link"
             id="profile-tab"
             data-bs-toggle="tab"
-            data-bs-target="#profile"
+            data-bs-target="#rooms"
             type="button"
             role="tab"
-            aria-controls="profile"
+            aria-controls="rooms"
             aria-selected="false"
           >
             Номера
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="profile-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#users"
+            type="button"
+            role="tab"
+            aria-controls="users"
+            aria-selected="false"
+          >
+            Пользователи
           </button>
         </li>
       </ul>
@@ -37,7 +51,7 @@
 <div class="tab-content" id="myTabContent">
         <div
           class="tab-pane fade show active"
-          id="home"
+          id="bookings"
           role="tabpanel"
           aria-labelledby="home-tab"
         >
@@ -62,7 +76,7 @@
         </div>
         <div
           class="tab-pane fade"
-          id="profile"
+          id="rooms"
           role="tabpanel"
           aria-labelledby="profile-tab"
         >
@@ -85,10 +99,35 @@
         </tbody>
       </table>
         </div>
+        <div
+          class="tab-pane fade"
+          id="users"
+          role="tabpanel"
+          aria-labelledby="profile-tab"
+        >
+         <table class="booking m-3">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Номер</th>
+            <th>Фамилия</th>
+            <th>Удалить</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td aria-label="ID">8:00-12:00</td>
+            <td aria-label="Номер">Никвпыолай</td>
+            <td aria-label="Фамилия">Нет</td>
+            <td aria-label="Удалить">Ирина сделай кнопку</td>
+          </tr>
+        </tbody>
+      </table>
+        </div>
       </div>
   </div>
 </template>
-
+ 
 <script>
 export default {
   name: "Admin",
