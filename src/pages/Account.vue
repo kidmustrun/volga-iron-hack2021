@@ -48,11 +48,12 @@
               <b>Отчество: </b>{{ user.last_name }}
             </li>
             <li class="list-group-item"><b>Пол: </b>{{ user.gender }}</li>
-            <li class="list-group-item"><b>Почта: </b>{{ user.email }}</li>
+            <li class="list-group-item"><b>Почта: </b>{{ user.roles }}</li>
             <li class="list-group-item">
               <b>Номер телефона: </b>{{ user.phone }}
             </li>
           </ul>
+          <router-link v-if="admin" to="/admin">Панель администратора</router-link>
         </div>
         <div
           class="tab-pane fade"
@@ -96,13 +97,20 @@ export default {
   },
   data() {
     return {
-      user: {},
-      bookings: [],
+      user: null,
+      bookings: []
     };
+  },
+  computed: {
+    admin: function (){
+    if (this.user.roles[0] === 'admin')
+    return true;
+    else return false;
+    }
   },
   created() {
     getSomething("api/v1/user").then(
-      (response) => (this.user = response.data.data)
+      (response) => {this.user = response.data.data;}
     );
     getSomething("api/v1/user/myroom").then(
       (response) => (this.bookings = response.data)
