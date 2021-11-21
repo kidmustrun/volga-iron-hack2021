@@ -154,6 +154,7 @@ export default {
       })
         .then(() => {
           this.$router.push("/");
+          location.reload();
           this.loading = false;
         })
         .catch((error) => {

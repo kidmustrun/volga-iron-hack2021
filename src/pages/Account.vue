@@ -53,7 +53,9 @@
               <b>Номер телефона: </b>{{ user.phone }}
             </li>
           </ul>
-          <router-link v-if="admin" to="/admin">Панель администратора</router-link>
+          <router-link v-if="admin" to="/admin"
+            >Панель администратора</router-link
+          >
         </div>
         <div
           class="tab-pane fade"
@@ -68,14 +70,20 @@
                 <th scope="col">Дата заезда</th>
                 <th scope="col">Дата выезда</th>
                 <th scope="col">Сумма</th>
+                <th scope="col">Статус</th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="booking in bookings" :key="booking.id">
-                <th scope="row">{{booking.id}}</th>
+                <th scope="row">{{ booking.id }}</th>
                 <td>{{ booking.start }}</td>
                 <td>{{ booking.end }}</td>
                 <td>{{ booking.summ }}</td>
+                <td><span v-if="booking.available"> Забронировано </span><span v-else>Отменено</span></td>
+                <td>
+                  <button  v-if="booking.available" @click="cancelReserv(booking.id)">Отменить</button>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -89,6 +97,7 @@
 <script>
 import Title from "../components/Title.vue";
 import { getSomething } from "../api/get.js";
+import { postSomething } from "../api/post";
 
 export default {
   name: "Account",
@@ -98,24 +107,31 @@ export default {
   data() {
     return {
       user: null,
-      bookings: []
+      bookings: [],
     };
   },
   computed: {
-    admin: function (){
-    if (this.user.roles[0] === 'admin')
-    return true;
-    else return false;
-    }
+    admin: function () {
+      if (this.user.roles[0] === "admin") return true;
+      else return false;
+    },
   },
   created() {
-    getSomething("api/v1/user").then(
-      (response) => {this.user = response.data.data;}
-    );
+    getSomething("api/v1/user").then((response) => {
+      this.user = response.data.data;
+    });
     getSomething("api/v1/user/myroom").then(
       (response) => (this.bookings = response.data)
     );
     console.log(this.bookings + "bookings");
+  },
+  methods: {
+    cancelReserv(id) {
+      postSomething(`api/v1/user/myroom/${id}`, id).then(() => {
+        location.reload();
+        console.log("Бронь удалена");
+      });
+    },
   },
 };
 </script>
