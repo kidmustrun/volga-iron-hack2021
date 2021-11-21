@@ -61,15 +61,17 @@
             <th>ID брони</th>
             <th>ID клиента</th>
             <th>Сумма</th>
+            <th>Статус</th>
             <th>Отменить</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="booking in bookings" :key="booking.id">
+          <tr v-for="booking in bookings" :key="booking.id" :class="{'bg-danger': !booking.available}">
             <td aria-label="ID брони">{{booking.id}}</td>
             <td aria-label="ID клиента">{{booking.user_id}}</td>
             <td aria-label="Сумма">{{booking.summ}}</td>
-            <td aria-label="Отменить"></td>
+            <td><span v-if="booking.available"> Забронировано </span><span v-else>Отменено</span></td>
+            <td  aria-label="Отменить"><button class="btn_border" v-if="booking.available" @click="cancelReserv(booking.id)">Отменить</button></td>
           </tr>
         </tbody>
       </table>
@@ -115,7 +117,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="user in users" :key="user.id">
+          <tr v-for="user in users" :key="user.id" >
             <td aria-label="ID">{{user.id}}</td>
             <td aria-label="Имя">{{user.first_name}}</td>
             <td aria-label="Фамилия">{{user.second_name}}</td>
@@ -130,6 +132,7 @@
  
 <script>
 import { getSomething } from '../api/get';
+import { postSomething } from '../api/post';
 export default {
   name: "Admin",
   data(){
@@ -144,6 +147,14 @@ export default {
     getSomething('api/v1/admin/bookings').then((response) => this.bookings = response.data)
     getSomething('api/v1/admin/users').then((response) => this.users = response.data)
     console.log(this.users)
+  },
+  methods:{
+    cancelReserv(id) {
+      postSomething(`api/v1/user/myroom/${id}`, id).then(() => {
+        location.reload();
+        console.log("Бронь удалена");
+      });
+    },
   }
 };
 </script>
@@ -199,5 +210,17 @@ table.booking td {
     float: left;
     font-weight: bold;
   }
+}
+.btn_border {
+  padding: 12px 10%;
+  border: none;
+  color: #fff;
+  background: #c9b158;
+  font-size: 20px;
+  transition: ease 0.5s;
+}
+.btn_border:hover {
+  background: #b89e40;
+  transition: ease 0.5s;
 }
 </style>
